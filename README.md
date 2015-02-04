@@ -38,7 +38,7 @@ The `schemadoc` command line tool
 requires a configuration file (defaults to `./schemadoc.yml` if not
 passed along).
 
-** Database Connection Settings - `database` Section**
+**Database Connection Settings - `database` Section**
 
 Use the `database` section to configure you database connection settings.
 Example:
@@ -57,7 +57,7 @@ that is, all tables not listed in other schemas will get auto-added
 to the "default" schema.
 
 
-Example - `schemadoc.yml`:
+**Example - `schemadoc.yml`**
 
 ~~~
 ## connection spec
@@ -126,7 +126,7 @@ $ gem install schemadoc
 ~~~
 
 
-## Free Schemadoc Themes (Template Packs)
+## Free Schemadoc Template Packs / Themes
 
 - [`book-templates/schema`](https://github.com/book-templates/schema) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
 
