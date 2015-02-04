@@ -1,0 +1,6 @@
+HISTORY.md
+Manifest.txt
+README.md
+Rakefile
+lib/schemadoc.rb
+lib/schemadoc/version.rb
