@@ -8,9 +8,120 @@ schemadoc gem - document your database schemas (tables, columns, etc.)
 * rdoc  :: [rubydoc.info/gems/schemadoc](http://rubydoc.info/gems/schemadoc)
 
 
-## Usage
+## Usage Command Line
 
-To be done
+The `schemadoc` gem includes a command line tool
+named - surprise, surprise - `schemadoc`. Try `$ schemadoc --help` resulting in:
+
+~~~
+schemadoc 1.0.0 - Lets you document your database tables, columns, etc.
+
+Usage: schemadoc [options]
+    -o, --output PATH            Output path (default is '.')
+    -v, --verbose                Show debug trace
+
+Examples:
+  schemadoc                # defaults to ./schemadoc.yml
+  schemadoc football.yml
+~~~
+
+
+## Configuration
+
+The `schemadoc` command line tool
+requires a configuration file (defaults to `./schemadoc.yml` if not
+passed along).
+
+**`database` Section - Database Connection Spec**
+
+Use the `database` section to configure you database connection settings.
+Example:
+
+~~~
+database:
+  adapter:  sqlite3
+  database: ./football.db
+~~~
+
+**Schema Sections**
+
+All other sections are interpreted as database schemas.
+The first section is the "default" schema,
+that is, all tables not listed in other schemas will get auto-added
+to the "default" schema.
+
+
+**`schemadoc.yml` Example**
+
+~~~
+## connection spec
+
+database:
+  adapter:  sqlite3
+  database: ./football.db
+
+
+## main tables
+
+football:
+  name: Football
+
+
+## world tables
+
+world:
+  name: World
+  tables:
+    - continents
+    - countries
+    - regions
+    - cities
+    - places
+    - names
+    - langs
+    - usages
+
+## support tables
+
+support:
+  name: Support
+  tables:
+    - logs
+    - props
+    - tags
+    - taggings
+~~~
+
+
+
+## Outputs
+
+The `schemadoc` tool writes out two json files:
+
+- `database.json`  - includes all schemas, tables, columns, etc.
+- `symbols.json`   - includes all symbols from a to z
+
+
+## Reports 'n' Templates
+
+To generate web pages from you json files use a static site generator and
+a template pack (theme). For example, to use the `book-templates/schema` theme
+copy your json files in the `_data/` folder and rebuild the site (e.g. $ `jekyll build`).
+That's it. Enjoy your database schema docu. 
+
+
+
+## Install
+
+Just install the gem:
+
+    $ gem install schemadoc
+
+
+
+## Free Schemadoc Themes (Template Packs)
+
+- [`book-templates/schema`](https://github.com/book-templates/schema) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
 
 
 ## License
