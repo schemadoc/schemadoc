@@ -16,3 +16,8 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+
+###
+# exclude dbs for testing
+*.db
