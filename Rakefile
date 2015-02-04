@@ -17,6 +17,11 @@ Hoe.spec 'schemadoc' do
   self.readme_file  = 'README.md'
   self.history_file = 'HISTORY.md'
 
+  self.extra_deps = [
+    ['logutils'],
+    ['fetcher']
+  ]
+
   self.licenses = ['Public Domain']
 
   self.spec_extras = {

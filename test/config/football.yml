@@ -1,11 +1,23 @@
+###################
+# connection spec
+
+database:
+  adapter:  sqlite3
+  database: ./football.db
+
+
+###############
+# main tables
+
 football:
-  name: 'Football'
+  name: Football
+
 
 ############
 # world tables
 
 world:
-  name: 'World'
+  name: World
   tables:
     - continents
     - countries
@@ -20,7 +32,7 @@ world:
 # support tables
 
 support:
-  name: 'Support'
+  name: Support
   tables:
     - logs
     - props

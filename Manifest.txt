@@ -2,5 +2,10 @@ HISTORY.md
 Manifest.txt
 README.md
 Rakefile
+bin/schemadoc
 lib/schemadoc.rb
+lib/schemadoc/cli/opts.rb
+lib/schemadoc/cli/runner.rb
 lib/schemadoc/version.rb
+lib/schemadoc/worker.rb
+test/config/football.yml
