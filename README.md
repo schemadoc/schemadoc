@@ -11,7 +11,13 @@ schemadoc gem - document your database schemas (tables, columns, etc.)
 ## Usage Command Line
 
 The `schemadoc` gem includes a command line tool
-named - surprise, surprise - `schemadoc`. Try `$ schemadoc --help` resulting in:
+named - surprise, surprise - `schemadoc`. Try:
+
+~~~
+$ schemadoc --help
+~~~
+
+resulting in:
 
 ~~~
 schemadoc 1.0.0 - Lets you document your database tables, columns, etc.
@@ -32,7 +38,7 @@ The `schemadoc` command line tool
 requires a configuration file (defaults to `./schemadoc.yml` if not
 passed along).
 
-**`database` Section - Database Connection Spec**
+** Database Connection Settings - `database` Section**
 
 Use the `database` section to configure you database connection settings.
 Example:
@@ -51,7 +57,7 @@ that is, all tables not listed in other schemas will get auto-added
 to the "default" schema.
 
 
-**`schemadoc.yml` Example**
+Example - `schemadoc.yml`:
 
 ~~~
 ## connection spec
@@ -115,8 +121,9 @@ That's it. Enjoy your database schema docu.
 
 Just install the gem:
 
-    $ gem install schemadoc
-
+~~~
+$ gem install schemadoc
+~~~
 
 
 ## Free Schemadoc Themes (Template Packs)
