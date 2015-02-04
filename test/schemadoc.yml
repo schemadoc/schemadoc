@@ -1,0 +1,30 @@
+football:
+  name: 'Football'
+
+############
+# world tables
+
+world:
+  name: 'World'
+  tables:
+    - continents
+    - countries
+    - regions
+    - cities
+    - places
+    - names
+    - langs
+    - usages
+
+##########
+# support tables
+
+support:
+  name: 'Support'
+  tables:
+    - logs
+    - props
+    - tags
+    - taggings
+
+
