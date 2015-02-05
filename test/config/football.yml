@@ -27,6 +27,7 @@ world:
     - names
     - langs
     - usages
+    - country_codes
 
 ##########
 # support tables

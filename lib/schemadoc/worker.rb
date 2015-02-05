@@ -66,7 +66,7 @@ class Worker
       @con.columns( name ).each do |col|
         t[:columns] << {
            name:    col.name,
-           type:    col.sql_type,
+           type:    col.sql_type.downcase,   # note: use integer (instead of INTEGER)
            default: col.default,
            null:    col.null
         }
@@ -115,11 +115,28 @@ class Worker
 
       table_key  = name[0].upcase
       symbols[table_key][:tables] << name
-  
+
       @con.columns( name ).each do |col|
         col_key = col.name[0].upcase
-        symbols[col_key][:columns] << "#{col.name} in #{name}"
+        cols_ary = symbols[col_key][:columns]
+
+        ## search for column name
+        col_hash = cols_ary.find { |item| item[:name] == col.name }
+        if col_hash.nil?
+          col_hash = { name: col.name, tables: [] }
+          cols_ary << col_hash
+        end
+
+        col_hash[:tables] << name  
       end
+    end
+
+    ## sort tables, cols and (in tables)
+    symbols.each do |k,h|
+      h[:tables] = h[:tables].sort
+
+      h[:columns] = h[:columns].sort { |l,r| l[:name] <=> r[:name] }
+      h[:columns].each { |col| col[:tables] = col[:tables].sort }
     end
 
     data = []
