@@ -27,16 +27,6 @@ module SchemaDoc
 
         cmd.banner = "Usage: schemadoc [options]"
 
-        ### use -c and --config / why? why not??
-        ### use -n and --name   / why? why not??
-
-        cmd.on( '-f', '--file NAME', "Configuration name (default is '#{opts.config_name}')" ) do |s|
-          opts.config_name = s
-        end
-        cmd.on( '-d', '--dir PATH', "Configuration path (default is '#{opts.config_path}')" ) do |s|
-          opts.config_path = s
-        end
-
         cmd.on( '-o', '--output PATH', "Output path (default is '#{opts.output_path}')" ) do |s|
           opts.output_path = s
         end
@@ -73,10 +63,11 @@ EOS
   
       puts SchemaDoc.banner
 
-      config = YAML.load_file( "#{opts.config_path}/#{opts.config_name}" )
+      arg = args[0] || './schemadoc.yml'
+      config = YAML.load_file( arg )
       pp config 
 
-      worker = Worker.new( config ).run()
+      worker = Worker.new( config ).run
 
       puts 'Done.'
 

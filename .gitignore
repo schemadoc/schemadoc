@@ -21,3 +21,8 @@ doc/
 ###
 # exclude dbs for testing
 *.db
+
+#########
+# exclude generated json files for testing
+database.json
+symbols.json
