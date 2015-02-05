@@ -99,13 +99,13 @@ The `schemadoc` tool writes out two json files:
 
 
 **Examples.**
-football.db:
+See the football.db -
 [`database.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/database.json),
-[`symbols.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/symbols.json);
-beer.db:
+[`symbols.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/symbols.json)
+or beer.db -
 [`database.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/database.json),
 [`symbols.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/symbols.json)
-
+live examples.
 
 
 ## Reports 'n' Templates
@@ -115,12 +115,10 @@ a template pack (theme). For example, to use the `book-templates/schema` theme
 copy your json files in the `_data/` folder and rebuild the site (e.g. $ `jekyll build`).
 That's it. Enjoy your database schema docu. 
 
-
-
-## Examples
-
+**Examples.**
 See the [football.db](http://openfootball.github.io/schema/)
 or [beer.db](http://openbeer.github.io/schema/) live examples.
+
 
 ## Free Schemadoc Template Packs / Themes
 
