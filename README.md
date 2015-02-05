@@ -8,6 +8,7 @@ schemadoc gem - document your database schemas (tables, columns, etc.)
 * rdoc  :: [rubydoc.info/gems/schemadoc](http://rubydoc.info/gems/schemadoc)
 
 
+
 ## Usage Command Line
 
 The `schemadoc` gem includes a command line tool
@@ -86,18 +87,7 @@ world:
     - names
     - langs
     - usages
-
-## support tables
-
-support:
-  name: Support
-  tables:
-    - logs
-    - props
-    - tags
-    - taggings
 ~~~
-
 
 
 ## Outputs
@@ -106,6 +96,16 @@ The `schemadoc` tool writes out two json files:
 
 - `database.json`  - includes all schemas, tables, columns, etc.
 - `symbols.json`   - includes all symbols from a to z
+
+
+**Examples.**
+football.db:
+[`database.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/database.json),
+[`symbols.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/symbols.json);
+beer.db:
+[`database.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/database.json),
+[`symbols.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/symbols.json)
+
 
 
 ## Reports 'n' Templates
@@ -117,6 +117,16 @@ That's it. Enjoy your database schema docu.
 
 
 
+## Examples
+
+See the [football.db](http://openfootball.github.io/schema/)
+or [beer.db](http://openbeer.github.io/schema/) live examples.
+
+## Free Schemadoc Template Packs / Themes
+
+- [`book-templates/schema`](https://github.com/book-templates/schema) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
+
+
 ## Install
 
 Just install the gem:
@@ -124,11 +134,6 @@ Just install the gem:
 ~~~
 $ gem install schemadoc
 ~~~
-
-
-## Free Schemadoc Template Packs / Themes
-
-- [`book-templates/schema`](https://github.com/book-templates/schema) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
 
 
 ## License
