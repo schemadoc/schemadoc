@@ -45,7 +45,7 @@ schemadoc #{VERSION} - Lets you document your database tables, columns, etc.
 
 Examples:
   schemadoc
-  schemadoc -f football.yml
+  schemadoc football.yml
 
 Further information:
   https://github.com/rubylibs/schemadoc
