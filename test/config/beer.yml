@@ -1,0 +1,43 @@
+###################
+# connection spec
+
+database:
+  adapter:  sqlite3
+  database: ./beer.db
+
+
+###############
+# main tables
+
+beer:
+  name: Beer
+
+
+############
+# world tables
+
+world:
+  name: World
+  tables:
+    - continents
+    - countries
+    - regions
+    - cities
+    - places
+    - names
+    - langs
+    - usages
+    - country_codes
+
+##########
+# support tables
+
+support:
+  name: Support
+  tables:
+    - logs
+    - props
+    - tags
+    - taggings
+
+
