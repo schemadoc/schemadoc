@@ -1,0 +1,30 @@
+////////
+// yuml.me  model class diagram  (yuml.me/diagram/scruffy/class/draw)
+
+// note: use small size
+
+
+[Season|key;title] -> [Competition|key;title;start_at;end_at;num]
+
+[League|key;title] -> [Competition]
+
+[Competition] -> [Team|key;title;code;address;web]
+
+[Competition] -> [Round|title;start_at;end_at;num]
+
+[Competition] -> [Group|title;num]
+
+[Round] -> [Match|num;play_at;knockout;home;score1;score2;score1et;score2et;score1p;score2p;winner]
+
+[Group] -> [Match]
+
+[Team]  -> [Match]
+
+[Match] -> [Goal|minute;offset;penalty;owngoal]
+
+[Goal] <- [Player|name]
+
+[Team] -> [Squad|num;pos]
+
+[Squad] <- [Player]
+

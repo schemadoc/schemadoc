@@ -1,0 +1,10 @@
+////////
+// yuml.me  model class diagram  (yuml.me/diagram/scruffy/class/draw)
+
+
+[Brewery|key;name;address;web] -> [Brand|key;name]
+[Brand]   -> [Beer|key;name;abv;og]
+[Brewery] -> [Beer]
+
+[Beer] - [note: Use tags for styles e.g. ale lager stout lambic and more {bg:wheat}]
+

@@ -1,0 +1,8 @@
+////////
+// yuml.me  model class diagram  (yuml.me/diagram/scruffy/class/draw)
+
+
+[Site|key;title;author;updated;url;fetched;]  -> [Subscription]
+[Subscription]  <-  [Feed|key;encoding;format;title;url;feed_url;generator;summary;updated;published;author;fetched]  
+[Feed] -> [Item|guid;url;title;summary;content;updated;published;fetched]
+

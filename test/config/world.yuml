@@ -1,0 +1,25 @@
+
+////////
+// yuml.me  model class diagram  (yuml.me/diagram/scruffy/class/draw)
+
+////
+// Everything is a place. use inheritance w/ ^
+
+[Place|name;lat;lng;type] ^ [City Town Village]
+[Place] ^ [State Province]
+[Place] ^ [Country Territory]
+[Place] ^ [Continent]
+
+////
+// [Place] -> [Name|name;lang]
+
+///////
+
+[Continent|key;name;area;pop] -> [Country|key;name;area;pop]
+[Country] -> [State|key;name;area;pop]
+[State]   -> [City|key;name;area;pop]
+
+////
+//[Country] -> [Country Codes|name;type]
+
+
