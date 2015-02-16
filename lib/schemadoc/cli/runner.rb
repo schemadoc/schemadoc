@@ -65,9 +65,30 @@ EOS
 
       arg = args[0] || './schemadoc.yml'
       config = YAML.load_file( arg )
-      pp config 
+      pp config
 
-      worker = Worker.new( config ).run
+      ## check for .rb file w/ same name but .rb extension
+      ##  require/load if present
+      boot_path = arg.sub( '.yml', '.rb' )
+      if File.exists?( boot_path )
+        puts "try to boot (load) '#{boot_path}'..."
+
+        ## note: for now always add ./ current workdir
+        ##   fix - check if path is absolute; if not only add ./ current if not absolute
+        require "./#{boot_path}"
+        puts 'ok'
+      end
+
+      if defined?(MODELS)
+        models = MODELS
+        models.each do |model|         # double check model classes if present (loaded)
+          puts "#{model.name}... ok"
+        end
+      else
+        models = []
+      end
+
+      worker = Worker.new( config, models ).run
 
       puts 'Done.'
 

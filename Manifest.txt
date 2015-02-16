@@ -8,5 +8,11 @@ lib/schemadoc/cli/opts.rb
 lib/schemadoc/cli/runner.rb
 lib/schemadoc/version.rb
 lib/schemadoc/worker.rb
+test/config/beer.rb
 test/config/beer.yml
+test/config/beer.yuml
+test/config/feed.yuml
 test/config/football.yml
+test/config/football.yuml
+test/config/pluto.yuml
+test/config/world.yuml

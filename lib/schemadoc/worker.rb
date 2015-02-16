@@ -11,10 +11,10 @@ module SchemaDoc
 
 class Worker
 
-  def initialize( config )
+  def initialize( config, models=[] )
     ## split into db config (for connection) and
     ## schemadoc config
-    
+
     @config    = {}
     @db_config = {}
 
@@ -28,11 +28,16 @@ class Worker
 
     puts "database connection spec:"
     pp @db_config
+    
+    @models = models
   end
 
 
   def connect
-    @con = AbstractModel.connection_for( @db_config )
+    ##@con = AbstractModel.connection_for( @db_config )
+
+    ActiveRecord::Base.establish_connection( @db_config )
+    @con = ActiveRecord::Base.connection
   end
 
   def dump_schema
@@ -51,6 +56,7 @@ class Worker
       puts ''
     end
   end
+
 
   def build_schema
     ####
@@ -91,6 +97,73 @@ class Worker
     
     data
   end
+
+
+  def dump_models
+    @models.each do |model|
+      ## pp model
+
+      puts model.name
+      puts "=" * model.name.size
+      puts "  table_name: #{model.table_name}"
+      pp model.columns
+
+      ## check assocs
+      assocs = model.reflections.values
+      ## pp assocs
+      assocs.each do |assoc|
+        puts "#{assoc.macro} #{assoc.name}"
+        puts "options:"
+        pp assoc.options
+      end
+    end
+  end
+
+
+  def build_models
+    #########################
+    # build models hash
+    
+    models = []
+
+    @models.each do |model|
+
+      puts model.name
+      puts "=" * model.name.size
+
+      m = {
+        name: model.name,     ## todo: split into name and module/package name ?? 
+        table_name: model.table_name,
+        columns: [],
+        assocs: [],
+      }
+
+      model.columns.each do |column|
+        c = {
+          name:     column.name,
+          null:     column.null,
+          default:  column.default,
+          sql_type: column.sql_type,
+          cast_type: column.cast_type.class.name,
+        }
+        m[:columns] << c
+      end
+
+      ## check assocs
+      assocs = model.reflections.values
+      assocs.each do |assoc|
+        a = {
+          macro:   assoc.macro,     ## rename to rel or something - why, why not??
+          name:    assoc.name,
+          options: assoc.options    ## filter options - why, why not??
+        }
+        m[:assocs] << a
+      end
+
+      models << m
+    end # each model
+    models
+  end  # method build_models
 
 
   def build_index
@@ -148,9 +221,47 @@ class Worker
   end
 
 
+  def models_to_yuml( models )
+
+    ## todo: move to script !!!
+    ##   check
+    ##   how to deal w/ singular,plural,
+    ##   add to model
+    ##    singular,plural  - to keep it simple???
+    ##   use name and full_name and module ??
+    ##  e.g. BeerDb::Model::Brewery ???
+
+    buf = ''
+    models.each do |model|
+
+      assocs = model[:assocs]
+      if assocs.empty?
+        buf << "// skipping #{model[:name]}; no assocs found/n"
+        next
+      end
+
+      assocs.each do |assoc|
+        ## skip assocs w/ option through for now
+        if assoc[:options][:through]
+          buf << "// skipping assoc #{assoc[:macro]} #{assoc[:name]} w/ option through\n"
+          next
+        end
+
+        buf << "[#{model[:name]}] - [#{assoc[:name]}]\n"
+      end
+    end
+
+    buf
+  end
+
+
   def run( opts={} )
     connect()
     dump_schema()
+    dump_models()
+
+    models = build_models()
+    pp models
 
     schema = build_schema()
     index  = build_index()
@@ -161,6 +272,15 @@ class Worker
       f.write JSON.pretty_generate( schema )
     end
 
+    File.open( 'models.json', 'w') do |f|
+      f.write JSON.pretty_generate( models )
+    end
+    
+    ### fix: move to script !!!
+    File.open( 'models.yuml', 'w' ) do |f|
+      f.write models_to_yuml( models )
+    end
+
     File.open( 'symbols.json', 'w') do |f|
       f.write JSON.pretty_generate( index )
     end
@@ -168,6 +288,10 @@ class Worker
 
 
 private
+
+  ###
+  ## fix: not really needed - remove ???
+  ##   just use ActiveRecord::Base.establish_connection() directly ??
 
   class AbstractModel < ActiveRecord::Base
     self.abstract_class = true   # no table; class just used for getting db connection

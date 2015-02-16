@@ -26,3 +26,7 @@ doc/
 # exclude generated json files for testing
 database.json
 symbols.json
+models.json
+models.yuml
+
+
