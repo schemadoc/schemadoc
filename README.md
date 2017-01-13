@@ -111,7 +111,7 @@ live examples.
 ## Reports 'n' Templates
 
 To generate web pages from you json files use a static site generator and
-a template pack (theme). For example, to use the `schemadoc/schema-theme` theme
+a template pack (theme). For example, to use the `schemadoc/schemadoc-theme` theme
 copy your json files in the `_data/` folder and rebuild the site (e.g. $ `jekyll build`).
 That's it. Enjoy your database schema docu.
 
@@ -122,7 +122,7 @@ or [beer.db](http://openbeer.github.io/schema/) live examples.
 
 ## Free Schemadoc Template Packs / Themes
 
-- [`schemadoc/schema-theme`](https://github.com/schemadoc/schema-theme) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
+- [`schemadoc/schemadoc-theme`](https://github.com/schemadoc/schemadoc-theme) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
 
 
 ## Install
