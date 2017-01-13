@@ -8,7 +8,7 @@ Hoe.spec 'schemadoc' do
   self.summary = 'schemadoc - document your database schemas (tables, columns, etc.)'
   self.description = summary
 
-  self.urls    = ['https://github.com/rubylibs/schemadoc']
+  self.urls    = ['https://github.com/schemadoc/schemadoc']
 
   self.author  = 'Gerald Bauer'
   self.email   = 'opensport@googlegroups.com'

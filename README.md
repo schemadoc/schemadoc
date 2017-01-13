@@ -2,8 +2,8 @@
 
 schemadoc gem - document your database schemas (tables, columns, etc.)
 
-* home  :: [github.com/rubylibs/schemadoc](https://github.com/rubylibs/schemadoc)
-* bugs  :: [github.com/rubylibs/schemadoc/issues](https://github.com/rubylibs/schemadoc/issues)
+* home  :: [github.com/schemadoc/schemadoc](https://github.com/schemadoc/schemadoc)
+* bugs  :: [github.com/schemadoc/schemadoc/issues](https://github.com/schemadoc/schemadoc/issues)
 * gem   :: [rubygems.org/gems/schemadoc](https://rubygems.org/gems/schemadoc)
 * rdoc  :: [rubydoc.info/gems/schemadoc](http://rubydoc.info/gems/schemadoc)
 
@@ -14,13 +14,13 @@ schemadoc gem - document your database schemas (tables, columns, etc.)
 The `schemadoc` gem includes a command line tool
 named - surprise, surprise - `schemadoc`. Try:
 
-~~~
+```
 $ schemadoc --help
-~~~
+```
 
 resulting in:
 
-~~~
+```
 schemadoc 1.0.0 - Lets you document your database tables, columns, etc.
 
 Usage: schemadoc [options]
@@ -30,7 +30,7 @@ Usage: schemadoc [options]
 Examples:
   schemadoc                # defaults to ./schemadoc.yml
   schemadoc football.yml
-~~~
+```
 
 
 ## Configuration
@@ -44,11 +44,11 @@ passed along).
 Use the `database` section to configure you database connection settings.
 Example:
 
-~~~
+```
 database:
   adapter:  sqlite3
   database: ./football.db
-~~~
+```
 
 **Schema Sections**
 
@@ -60,7 +60,7 @@ to the "default" schema.
 
 **Example - `schemadoc.yml`**
 
-~~~
+```
 ## connection spec
 
 database:
@@ -87,7 +87,7 @@ world:
     - names
     - langs
     - usages
-~~~
+```
 
 
 ## Outputs
@@ -111,9 +111,9 @@ live examples.
 ## Reports 'n' Templates
 
 To generate web pages from you json files use a static site generator and
-a template pack (theme). For example, to use the `book-templates/schema` theme
+a template pack (theme). For example, to use the `schemadoc/schema-theme` theme
 copy your json files in the `_data/` folder and rebuild the site (e.g. $ `jekyll build`).
-That's it. Enjoy your database schema docu. 
+That's it. Enjoy your database schema docu.
 
 **Examples.**
 See the [football.db](http://openfootball.github.io/schema/)
@@ -122,20 +122,21 @@ or [beer.db](http://openbeer.github.io/schema/) live examples.
 
 ## Free Schemadoc Template Packs / Themes
 
-- [`book-templates/schema`](https://github.com/book-templates/schema) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
+- [`schemadoc/schema-theme`](https://github.com/schemadoc/schema-theme) - free schemadoc theme; works w/ Jekyll (and GitHub Pages) static site generator
 
 
 ## Install
 
 Just install the gem:
 
-~~~
+```
 $ gem install schemadoc
-~~~
+```
 
 
 ## License
 
+![](https://publicdomainworks.github.io/buttons/zero88x31.png)
+
 The `schemadoc` scripts are dedicated to the public domain.
 Use it as you please with no restrictions whatsoever.
-
