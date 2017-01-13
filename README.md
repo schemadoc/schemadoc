@@ -100,11 +100,11 @@ The `schemadoc` tool writes out two json files:
 
 **Examples.**
 See the football.db -
-[`database.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/database.json),
-[`symbols.json`](https://github.com/openfootball/schema/blob/gh-pages/_data/symbols.json)
+[`database.json`](https://github.com/openfootball/schema/blob/master/_data/database.json),
+[`symbols.json`](https://github.com/openfootball/schema/blob/master/_data/symbols.json)
 or beer.db -
-[`database.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/database.json),
-[`symbols.json`](https://github.com/openbeer/schema/blob/gh-pages/_data/symbols.json)
+[`database.json`](https://github.com/openbeer/schema/blob/master/_data/database.json),
+[`symbols.json`](https://github.com/openbeer/schema/blob/master/_data/symbols.json)
 live examples.
 
 
