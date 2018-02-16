@@ -133,6 +133,13 @@ Just install the gem:
 $ gem install schemadoc
 ```
 
+In addition, install `Active Record` and your database adapter's gem such as `mysql2`
+
+```
+$ gem install activerecord
+$ gem install mysql2
+```
+
 
 ## License
 
